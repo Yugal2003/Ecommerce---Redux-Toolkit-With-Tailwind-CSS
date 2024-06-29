@@ -1,0 +1,104 @@
+import React from "react";
+
+const CartData = [
+  {
+    id: 1,
+    title: "Fjallraven - Foldsack No. 1 Backpack",
+    price: 109.95,
+    description: "Your perfect pack for everyday use and walks in the forest.",
+    category: "men's clothing",
+    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+    rating: 3.9,
+  },
+  {
+    id: 2,
+    title: "Mens Casual Premium Slim Fit T-Shirts ",
+    price: 22.3,
+    description: "Slim-fitting style, contrast raglan long sleeve",
+    category: "men's clothing",
+    image:
+      "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+    rating: 4.1,
+  },
+  {
+    id: 3,
+    title: "Mens Cotton Jacket",
+    price: 55.99,
+    description:
+      "great outerwear jackets for Spring/Autumn/Winter,er outdoors.",
+    category: "men's clothing",
+    image: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
+    rating: 4.7
+  },
+  {
+    id: 4,
+    title: "Mens Casual Slim Fit",
+    price: 15.99,
+    description:
+      "The color could be slightly different between on the screen.",
+    category: "men's clothing",
+    image: "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
+    rating: 2.1
+  }
+];
+
+const CartDetails = () => {
+  return (
+    <div>
+        <h1 className="my-4 text-center text-3xl font-semibold underline">Product List </h1>
+        <br></br>
+      <table className="w-[80.5%] sm:w-[95%] md:w-[88%] mx-auto border-4 border-black">
+        <thead className="border-4 border-black">
+          <tr>
+            <th className="sm:text-lg md:text-xl border-4 border-black w-[1%] sm:w-[1%] md:w-[15%]">Product</th>
+            <th className="sm:text-lg md:text-xl border-4 border-black w-[4%] sm:w-[10%] md:w-[32%]">Name</th>
+            <th className="sm:text-lg md:text-xl border-4 border-black w-[3%] sm:w-[6%] md:w-[12%]">Price</th>
+            <th className="sm:text-lg md:text-xl border-4 border-black w-[2%] sm:w-[3%] md:w-[8%]">Qty</th>
+            <th className="sm:text-lg md:text-xl border-4 border-black w-[2%] sm:w-[10%] md:w-[10%]">Amount</th>
+          </tr>
+        </thead>
+        <tbody className="border-4 border-black">
+          {CartData.map((cart) => {
+            return (
+              <>
+                <tr>
+                  <td className="border-4 border-black">
+                    <img className="w-[35%] items-center mx-auto" src={cart.image} alt="" />
+                  </td>
+
+                  <td className="border-4 border-black">
+                    <p className="items-center mx-auto text-center text-lg font-semibold">{cart.title}</p>
+                  </td>
+                  <td className="border-4 border-black">
+                    <p className="items-center mx-auto text-center text-lg font-semibold">₹ {cart.price}</p>
+                  </td>
+                  <td className=" border-4 border-black">
+                    <div className="flex flex-row justify-center items-center gap-x-1 sm:gap-x-8">
+                        <button className="border-2 border-gray-400 px-2.5 rounded-lg text-lg font-bold bg-red-600 outline-none">-</button>
+                        <p className="text-xl font-bold">0</p>
+                        <button className="border-2 border-gray-400 px-2 rounded-lg text-lg font-bold bg-green-600 outline-none">+</button>
+                    </div>
+                  </td>
+                  <td className="border-4 border-black">
+                    <p className="items-center mx-auto text-center text-lg font-semibold">Total Amount : <span className="text-red-600 font-bold">0</span></p>
+                  </td>
+                </tr>
+              </>
+            );
+          })}
+        </tbody>
+
+        <br></br>
+
+        <tfoot>
+          <tr className="text-end text-lg border-4 border-black"> 
+                <th>CartItems : <span className="text-red-600 text-xl">0</span></th>
+                <th>Total Price : <span className="text-red-600 text-xl ml-8">0</span></th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  );
+};
+
+export default CartDetails;
